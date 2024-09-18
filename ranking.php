@@ -19,7 +19,8 @@ include_once 'head.php'
         </div>
       </div>
       <div class="col">
-      <a class="btn btn-menu btn-success w-100 fw-semibold false" href="<?php echo $lienket ?>">Box Zalo</a>
+          <a class="btn btn-menu btn-success w-100 fw-semibold false" href="<?php /** @var TYPE_NAME $lienket */
+      echo $lienket ?>">Box Zalo</a>
         </div>
       </div>
    </div>

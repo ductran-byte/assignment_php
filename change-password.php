@@ -1,4 +1,5 @@
 <?php
+global $_login;
 include_once 'head.php';
 $_alert = null;
 if ($_login == null) {
@@ -8,6 +9,7 @@ if (isset($_POST['password'])) {
     $old_pass = isset_sql($_POST['password']);
     $new_pass = isset_sql($_POST['new_password']);
     $re_pass = isset_sql($_POST['new_password_confirmation']);
+    /** @var TYPE_NAME $_password */
     if ($old_pass != $_password) {
         echo '<script>
 		document.addEventListener("DOMContentLoaded", function() {
@@ -28,6 +30,7 @@ if (isset($_POST['password'])) {
 			});
 		</script>';
         } else {
+            /** @var TYPE_NAME $_username */
             $query = _query(_update('isplayer', "password='$new_pass'", "username='$_username'"));
             if ($query) {
                 echo '<script>

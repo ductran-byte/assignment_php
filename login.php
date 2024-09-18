@@ -60,10 +60,6 @@ if ($_login == null) {
             if ($pass !== strtolower($pass) || !preg_match('/^[a-z0-9]{4,}$/', $pass)) {
                 $_alert = _alert('err', "Mật khẩu không hợp lệ. Mật khẩu chỉ được chứa ký tự chữ thường và số, ít nhất 4 ký tự.");
             } else {
-                // Kiểm tra email đã tồn tại trong cơ sở dữ liệu hay chưa
-                //    $emailCheckQuery = _select("COUNT(*) as emailCount", 'users', "email='$email'");
-                //  $emailCheckResult = _fetch($emailCheckQuery);
-
                 // Kiểm tra số điện thoại đã tồn tại trong cơ sở dữ liệu hay chưa
                 $phoneCheckQuery = _select("COUNT(*) as phoneCount", 'isplayer', "phone='$phone'");
                 $phoneCheckResult = _fetch($phoneCheckQuery);
@@ -135,73 +131,6 @@ if ($_login == null) {
 } else {
     header('location:/account.php');
 }
-//end trường hợp test trên local
-/*
-else {
-
-
-    $secret = '6Le3NDUoAAAAAP_9PTmj_ZFx6-E5ObTZ_-augn9K'; //Thay bằng mã Secret Key của bạn
-    $verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$captcha);
-    $response_data = json_decode($verify_response);
-    if($response_data->success)
-    {
-        $txt = _insert('isplayer', "username, password, coin, luong, status, phone", "'$users', '$pass', '99999999', '0', '1', '$phone'");
-        $kiemtra = _query($txt);
-        if ($kiemtra) {
-            echo '<script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var modal = document.getElementById("regOK");
-                var modalContent = document.getElementById("regOKContent");
-                modalContent.innerHTML = "<span style=\"font-size: 18px; font-weight: bold; color: #198754;\">Đăng ký thành công</span>";
-                modal.style.display = "block";
-            });
-        </script>';
-        } else {
-            echo '<script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var modal = document.getElementById("regFailModal");
-                var modalContent = document.getElementById("regFailModalContent");
-                modalContent.innerHTML = "<span style=\"font-size: 18px; font-weight: bold; color: #ff0000;\">Lỗi nặng, làm ơn liên hệ ngay với <span class="text-success fw-bold" href="echo $lienket">Admin</span></span>";
-                modal.style.display = "block";
-            });
-        </script>';
-        }
-    }
-    else
-    {
-        echo '<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var modal = document.getElementById("regFailModal");
-            var modalContent = document.getElementById("regFailModalContent");
-            modalContent.innerHTML = "<span style=\"font-size: 18px; font-weight: bold; color: #ff0000;\">Xác minh mã Captcha không thành công, vui lòng kiểm tra lại.</span>";
-            modal.style.display = "block";
-        });
-    </script>';
-    }
-
- //   $ngayThamGia = date("Y-m-d H:i:s");
-
-    // Thêm tài khoản với status='wait', email và số điện thoại
-
-
-
-}
-}
-} else {
-echo '<script>
-document.addEventListener("DOMContentLoaded", function() {
-var modal = document.getElementById("regFailModal");
-var modalContent = document.getElementById("regFailModalContent");
-modalContent.innerHTML = "<span style=\"font-size: 18px; font-weight: bold; color: #ff0000;\">Mật khẩu nhập lại không khớp</span>";
-modal.style.display = "block";
-});
-</script>';
-}
-}
-} else {
-header('location:/account.php');
-}
-*/
 
 ?>
 <body>
@@ -285,28 +214,6 @@ header('location:/account.php');
         }
     </script>
 
-
-    <!--<main class="flex-grow-1 flex-shrink-1">
-
-   <div class="container pb-5">
-        <form class="form-signin" method="POST">
-            <input type="hidden" name="_token" value="JEGpj39vMoqzUAPDoHWTY8Y4jJiy4t0mhPST9nds">
-<br><h1 class="h3 mb-3 font-weight-normal text-center">Vui lòng đăng nhập</h1>
-            <?php echo $alert; ?>
-            <label class="sr-only">Tài khoản</label>
-            <input type="text" class="form-control" placeholder="Tài khoản" required="" name="username">
-            <label class="sr-only">Mật khẩu</label>
-            <input type="password" class="form-control" placeholder="Mật khẩu" required="" name="password">
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" name="remember" value="forever"> Nhớ đăng nhập
-                </label>
-            </div>
-            <button class="btn btn-info btn-block" type="submit">Đăng nhập</button>
-            <div class="text-center pt-2">
-                Bạn chưa có tài khoản? <a href="/register">Đăng ký ngay</a>
-            </div>
-        </form>-->
 
     <a class="mt-3" data-bs-toggle="modal" data-bs-target="#modalLogin"><span
                 class="mb-3 px-2 py-1 fw-semibold text-dark bg-success bg-opacity-25 border border-success border-opacity-75 rounded-2 link-success cursor-pointer">Đăng nhập ngay ?</span></a>

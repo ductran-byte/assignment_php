@@ -1,8 +1,10 @@
-<?php 
+<?php
 
+global $_login, $_user;
 include_once 'head.php';
 if($_login == null) {header("location:/login");}
 $userValue = $_user;
+/** @var TYPE_NAME $_username */
 $read_sql = _fetch(_select("*", 'isplayer', "username='$_username'"));
 $replace1 = $read_sql['username'];
 $replace2 = str_replace('[', '', $replace1);
@@ -68,7 +70,8 @@ if(isset($_POST['playername']))
 			if($_coin >= $amount1 )
 			{
 				$txt = _update('isplayer',"coin=`coin`-$amount1","username='$_username'");
-				$txt1 = _update('isplayer',"luong=`luong`+$amount2","username='$_username'");
+                /** @var TYPE_NAME $amount2 */
+                $txt1 = _update('isplayer',"luong=`luong`+$amount2","username='$_username'");
 				$query = _query($txt);
 				$query1 = _query($txt1);
 				echo '<script>

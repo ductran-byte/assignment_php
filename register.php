@@ -1,4 +1,5 @@
 <?php
+global $_name_site, $_login;
 include_once 'set.php';
 $_title = "NSOBOBA" . $_name_site;
 include_once 'head.php';

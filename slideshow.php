@@ -1,23 +1,6 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <script>
-    //The slideshow requires five things: 
-// 1) you name your slides with the naming format "slideshowX.png", where the X is the position the slide is in.
-// 2) all "slideshowX.png" files must be in the slides folder
-// 3) You need to set NUMBER_OF_SLIDES to the number of files in the prevously mentioned folder
-// 4) You need to create a new img element for each slide, and point it to the file, like so:
-// <div id="slideshow">
-// 	  <img src="./html/img/slideshow/slideshow1.png"></img>
-// 	  <img src="./html/img/slideshow/slideshow2.png"></img>
-// 	  <img src="./html/img/slideshow/slideshow3.png"></img>
-// </div>
-// 5) Create new circles beneath the slideshow to match the number of images in the slideshow.
-//    Make sure that the id of each circle is set as below
-// <div style="text-align: center">
-// 	 <div id="circle1" class="circle"></div>
-// 	 <div id="circle2" class="circle"></div>
-// 	 <div id="circle3" class="circle"></div>
-// </div>
 
 
 $(document).ready(function(){ //wait until page is fully loaded

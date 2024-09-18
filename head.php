@@ -1,4 +1,5 @@
 <?php
+global $config, $_login, $_user;
 ob_start();
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -7,8 +8,6 @@ error_reporting(E_ALL);
 include_once 'cauhinh.php';
 include_once 'config.php';
 include_once 'set.php';
-//$read_sql = _fetch(_select("*", 'isplayer', "username='$_user'"));
-// $_coin = $read_sql['coin'];
 $_active = isset($_active) ? $_active : null;
 
 ?>
@@ -77,143 +76,32 @@ if ($result) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles1.css">
     <link rel="stylesheet" type="text/css" href="css/styles2.css">
-
-    <!-- Bootstrap core CSS -->
-
-    <!--   <script src="/js/notice1.js"></script>
-       <script src="/js/notice2.js"></script>
-       <script src="static/js/jquery.min.js"></script>
-       <script language="javascript" src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.js"></script>
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">-->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!--<style>
-        html {
-        font-size: 14px;
-        }
-        @media (min-width: 768px) {
-        html {
-        font-size: 16px;
-        }
-        }
-        .container {
-        max-width: 960px;
-        }
-        .pricing-header {
-        max-width: 700px;
-        }
-        .card-deck .card {
-        min-width: 220px;
-        }
-        .border-top {
-        border-top: 1px solid #e5e5e5;
-        }
-        .border-bottom {
-        border-bottom: 1px solid #e5e5e5;
-        }
-        .box-shadow {
-        box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-        }
-
-
-
-     </style>-->
 </head>
-<body>
-<div id="root">
-    <div class="container">
-        <div class="main">
-            <div class="text-center card">
-                <div class="card-body">
-                    <div class="">
-                        <a href="/">
-                            <img class="logo" alt="Logo" src="images/logo12.png" style="max-width: 250px;">
-                        </a>
-                    </div>
-                    <div class="mt-3">
-                        <div class="mt-3">
-                            <?php if ($_login == null) { ?>
-
-                            <?php include_once 'login.php' ?>
-                        </div>
-                        <div class="mt-3">
-                            <a class="mb-3 px-2 py-1 fw-semibold text-danger bg-danger bg-opacity-25 border border-danger border-opacity-50 rounded-2 cursor-pointer"
-                               href="/download">
-                                TẢI GAME
-                                <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
-                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     viewBox="0 0 29.978 29.978" xml:space="preserve" class="download-icon">
-              <g>
-                  <path d="M25.462,19.105v6.848H4.515v-6.848H0.489v8.861c0,1.111,0.9,2.012,2.016,2.012h24.967c1.115,0,2.016-0.9,2.016-2.012
-                    v-8.861H25.462z"></path>
-
-                  <path d="M14.62,18.426l-5.764-6.965c0,0-0.877-0.828,0.074-0.828s3.248,0,3.248,0s0-0.557,0-1.416c0-2.449,0-6.906,0-8.723
-                    c0,0-0.129-0.494,0.615-0.494c0.75,0,4.035,0,4.572,0c0.536,0,0.524,0.416,0.524,0.416c0,1.762,0,6.373,0,8.742
-                    c0,0.768,0,1.266,0,1.266s1.842,0,2.998,0c1.154,0,0.285,0.867,0.285,0.867s-4.904,6.51-5.588,7.193
-                    C15.092,18.979,14.62,18.426,14.62,18.426z"></path>
-              </g>
-
-           </svg>
-
+<div>
+    <div id="root">
+        <div class="container">
+            <div class="main">
+                <div class="text-center card">
+                    <div class="card-body">
+                        <div class="">
+                            <a href="/">
+                                <img class="logo" alt="Logo" src="images/logo12.png" style="max-width: 250px;">
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-2">
-                <div class="row text-center justify-content-center row-cols-2 row-cols-lg-6 g-2 g-lg-2 mt-1">
-                    <div class="col">
-                        <div class="px-2"><a class="btn btn-menu btn-success w-100 fw-semibold false" href="/">Trang
-                                chủ</a></div>
-                    </div>
-                    <div class="col">
-                        <div class="px-2">
-                            <a class="btn btn-menu btn-success w-100 fw-semibold false" data-bs-toggle="modal"
-                               data-bs-target="#modalLogin">Nạp tiền</a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="px-2">
-                            <a class="btn btn-menu btn-success w-100 fw-semibold false" data-bs-toggle="modal"
-                               data-bs-target="#modalLogin">Cửa hàng</a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="px-2">
-                            <a class="btn btn-menu btn-success w-100 fw-semibold false" data-bs-toggle="modal"
-                               data-bs-target="#modalLogin">Đổi lượng</a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="px-2"><a class="btn btn-menu btn-success w-100 fw-semibold false"
-                                             href="<?php echo $lienket ?>">Box Zalo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php } else { ?>
-            <a class="mb-3 px-2 py-1 fw-semibold text-dark bg-success bg-opacity-25 border border-success border-opacity-75 rounded-2 link-success cursor-pointer"
-               href="/user">
-                <span><?php echo $_username . ' - ' . $_coin . ' C'; ?> </span>
-            </a><span>&nbsp;</span><a
-                    class="mb-3 px-2 py-1 fw-semibold text-dark bg-success bg-opacity-25 border border-success border-opacity-75 rounded-2 link-success cursor-pointer"
-                    href="/?out"><span>Đăng xuất</span></a>
-        </div>
-        <?php
+                        <div class="mt-3">
+                            <div class="mt-3">
+                                <?php if ($_login == null) { ?>
 
-        if ($_lock == "wait") {
-            echo '<div class="mt-2"><small class="text-danger fw-semibold mt-3">Tài khoản của bạn chưa được kích hoạt, click vào phía dưới để kích hoạt.</small></div><div class="mt-2"> <span class="mb-3 px-2 py-1 fw-semibold text-secondary bg-danger bg-opacity-25 border border-danger border-opacity-75 rounded-2 link-success cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalActive">Kích hoạt tài khoản</span></div>';
-        } elseif ($_lock == "block") {
-            echo '<div class="mt-2"><small class="text-danger fw-semibold mt-3">Tài Khoản Của Bạn Đang Bị Khóa</small></div><div class="mt-2"> <span class="mb-3 px-2 py-1 fw-semibold text-secondary bg-danger bg-opacity-25 border border-danger border-opacity-75 rounded-2 link-success cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalUnlock">Mở Khóa Tài Khoản</span></div>';
-        }
-        ?>
-        <div class="mt-3">
-            <a class="mb-3 px-2 py-1 fw-semibold text-danger bg-danger bg-opacity-25 border border-danger border-opacity-50 rounded-2 cursor-pointer"
-               href="/download">
-                TẢI GAME
-                <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
-                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                     viewBox="0 0 29.978 29.978" xml:space="preserve" class="download-icon">
+                                <?php include_once 'login.php' ?>
+                            </div>
+                            <div class="mt-3">
+                                <a class="mb-3 px-2 py-1 fw-semibold text-danger bg-danger bg-opacity-25 border border-danger border-opacity-50 rounded-2 cursor-pointer"
+                                   href="/download">
+                                    TẢI GAME
+                                    <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
+                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         viewBox="0 0 29.978 29.978" xml:space="preserve" class="download-icon">
               <g>
                   <path d="M25.462,19.105v6.848H4.515v-6.848H0.489v8.861c0,1.111,0.9,2.012,2.016,2.012h24.967c1.115,0,2.016-0.9,2.016-2.012
                     v-8.861H25.462z"></path>
@@ -226,10 +114,83 @@ if ($result) {
 
            </svg>
 
-            </a>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <div class="row text-center justify-content-center row-cols-2 row-cols-lg-6 g-2 g-lg-2 mt-1">
+                        <div class="col">
+                            <div class="px-2"><a class="btn btn-menu btn-success w-100 fw-semibold false" href="/">Trang
+                                    chủ</a></div>
+                        </div>
+                        <div class="col">
+                            <div class="px-2">
+                                <a class="btn btn-menu btn-success w-100 fw-semibold false" data-bs-toggle="modal"
+                                   data-bs-target="#modalLogin">Nạp tiền</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="px-2">
+                                <a class="btn btn-menu btn-success w-100 fw-semibold false" data-bs-toggle="modal"
+                                   data-bs-target="#modalLogin">Cửa hàng</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="px-2">
+                                <a class="btn btn-menu btn-success w-100 fw-semibold false" data-bs-toggle="modal"
+                                   data-bs-target="#modalLogin">Đổi lượng</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="px-2"><a class="btn btn-menu btn-success w-100 fw-semibold false"
+                                                 href="<?php echo $lienket ?>">Box Zalo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } else { ?>
+                <a class="mb-3 px-2 py-1 fw-semibold text-dark bg-success bg-opacity-25 border border-success border-opacity-75 rounded-2 link-success cursor-pointer"
+                   href="/user">
+                <span><?php /** @var TYPE_NAME $_username */
+                    echo $_username . ' - ' . $_coin . ' C'; ?> </span>
+                </a><span>&nbsp;</span><a
+                        class="mb-3 px-2 py-1 fw-semibold text-dark bg-success bg-opacity-25 border border-success border-opacity-75 rounded-2 link-success cursor-pointer"
+                        href="/?out"><span>Đăng xuất</span></a>
+            </div>
+            <?php
+
+            /** @var TYPE_NAME $_lock */
+            if ($_lock == "wait") {
+                echo '<div class="mt-2"><small class="text-danger fw-semibold mt-3">Tài khoản của bạn chưa được kích hoạt, click vào phía dưới để kích hoạt.</small></div><div class="mt-2"> <span class="mb-3 px-2 py-1 fw-semibold text-secondary bg-danger bg-opacity-25 border border-danger border-opacity-75 rounded-2 link-success cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalActive">Kích hoạt tài khoản</span></div>';
+            } elseif ($_lock == "block") {
+                echo '<div class="mt-2"><small class="text-danger fw-semibold mt-3">Tài Khoản Của Bạn Đang Bị Khóa</small></div><div class="mt-2"> <span class="mb-3 px-2 py-1 fw-semibold text-secondary bg-danger bg-opacity-25 border border-danger border-opacity-75 rounded-2 link-success cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalUnlock">Mở Khóa Tài Khoản</span></div>';
+            }
+            ?>
+            <div class="mt-3">
+                <a class="mb-3 px-2 py-1 fw-semibold text-danger bg-danger bg-opacity-25 border border-danger border-opacity-50 rounded-2 cursor-pointer"
+                   href="/download">
+                    TẢI GAME
+                    <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
+                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         viewBox="0 0 29.978 29.978" xml:space="preserve" class="download-icon">
+              <g>
+                  <path d="M25.462,19.105v6.848H4.515v-6.848H0.489v8.861c0,1.111,0.9,2.012,2.016,2.012h24.967c1.115,0,2.016-0.9,2.016-2.012
+                    v-8.861H25.462z"></path>
+
+                  <path d="M14.62,18.426l-5.764-6.965c0,0-0.877-0.828,0.074-0.828s3.248,0,3.248,0s0-0.557,0-1.416c0-2.449,0-6.906,0-8.723
+                    c0,0-0.129-0.494,0.615-0.494c0.75,0,4.035,0,4.572,0c0.536,0,0.524,0.416,0.524,0.416c0,1.762,0,6.373,0,8.742
+                    c0,0.768,0,1.266,0,1.266s1.842,0,2.998,0c1.154,0,0.285,0.867,0.285,0.867s-4.904,6.51-5.588,7.193
+                    C15.092,18.979,14.62,18.426,14.62,18.426z"></path>
+              </g>
+
+           </svg>
+
+                </a>
+            </div>
         </div>
     </div>
-</div>
 </div>
 <div class="mb-2">
     <div class="row text-center justify-content-center row-cols-2 row-cols-lg-6 g-2 g-lg-2 mt-1">

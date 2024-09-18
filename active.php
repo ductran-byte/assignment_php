@@ -3,9 +3,11 @@
 global $_login;
 include_once 'head.php';
 
+/** @var TYPE_NAME $_username */
 $read_sql = _fetch(_select("*", 'isplayer', "username='$_username'"));
 $_coin = $read_sql['coin'];
 if($_login == null) {header("location:/");}
+/** @var TYPE_NAME $_lock */
 if($_lock == 'active') {
 	$_active = _alert('succ',"Tài Khoản Của Bạn Đã Được Kích Hoạt");
 }

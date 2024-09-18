@@ -1,10 +1,12 @@
 <?php
 
+global $_login;
 include_once 'head.php';
 //include_once 'set.php';
 if($_login == null) {header("location:/user");}
 $_active = isset($_active) ? $_active : null;
 
+/** @var TYPE_NAME $_username */
 $read_sql = _fetch(_select("*", 'isplayer', "username='$_username'"));
 $_coin = $read_sql['coin'];
 $phone = $read_sql['phone'];
@@ -67,11 +69,13 @@ $ngaythamgia = $read_sql['ngaythamgia'];
         </tr>
         <tr class="fw-semibold">
             <td>Nhóm thành viên</td>
-            <td style="color: rgb(0, 0, 0);"><span style="color:black;font-weight: bold;"><?php echo $_type_account_name; ?></td>
+            <td style="color: rgb(0, 0, 0);"><span style="color:black;font-weight: bold;"><?php /** @var TYPE_NAME $_type_account_name */
+                echo $_type_account_name; ?></td>
         </tr>
         <tr class="fw-semibold">
             <td>Trạng thái</td>
-            <td class="text-success fw-bold"><?php echo $_lock; ?></td>
+            <td class="text-success fw-bold"><?php /** @var TYPE_NAME $_lock */
+                echo $_lock; ?></td>
         </tr>
         <tr class="fw-semibold">
             <td>Ngày tham gia</td>
