@@ -1,0 +1,20 @@
+[25-Feb-2024 13:13:56 UTC] PHP Warning:  require_once(/home/nsorisex/public_html/core/init.php): Failed to open stream: No such file or directory in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5
+[25-Feb-2024 13:13:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nsorisex/public_html/core/init.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/nsorisex/public_html/admin/assets/ajax/item.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5
+[25-Feb-2024 13:14:44 UTC] PHP Warning:  require_once(/home/nsorisex/public_html/core/init.php): Failed to open stream: No such file or directory in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5
+[25-Feb-2024 13:14:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nsorisex/public_html/core/init.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/nsorisex/public_html/admin/assets/ajax/item.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5
+[25-Feb-2024 14:55:03 UTC] PHP Warning:  require_once(/home/nsorisex/public_html/core/init.php): Failed to open stream: No such file or directory in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5
+[25-Feb-2024 14:55:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nsorisex/public_html/core/init.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/nsorisex/public_html/admin/assets/ajax/item.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5
+[25-Feb-2024 14:55:19 UTC] PHP Warning:  require_once(/home/nsorisex/public_html/core/init.php): Failed to open stream: No such file or directory in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5
+[25-Feb-2024 14:55:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nsorisex/public_html/core/init.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/nsorisex/public_html/admin/assets/ajax/item.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/nsorisex/public_html/admin/assets/ajax/item.php on line 5

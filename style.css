@@ -1,0 +1,118 @@
+html {
+    font-family: roboto, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.428571429;
+    background-color: #b3afaf;
+    color: #555;
+}
+button:focus {
+    outline: none;
+}
+.wrapper {
+    background: #fff;
+    min-height: 100vh;
+}
+.header img {
+    display: block;
+    max-height: 4rem;
+}
+.signin {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    border: 0;
+}
+.widget {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -0.25rem;
+}
+.widget-item {
+    max-width: calc(100% / 3);
+    flex-basis: calc(100% / 3);
+    padding: 0.25rem;
+}
+.widget-icon {
+    font-size: 2.25rem;
+}
+.table-nowrap th,
+.table-nowrap td {
+    white-space: nowrap;
+}
+.card .table {
+    border-right: 0;
+    border-left: 0;
+    margin-bottom: 0;
+}
+.card .table:last-child {
+    border-bottom: 0;
+}
+.card .table:not(.table-sm) th,
+.card .table:not(.table-sm) td {
+    padding: 0.75rem 1.25rem;
+}
+.card .table td:first-child,
+.card .table th:first-child {
+    border-left: 0;
+}
+.card .table td:last-child,
+.card .table th:last-child {
+    border-right: 0;
+}
+.card .table tr:first-child td,
+.card .table tr:first-child th {
+    border-top: 0;
+}
+.card .table tr:last-child td {
+    border-bottom: 0;
+}
+.card .table + .table {
+    border-top: 1px solid #dee2e6 !important;
+}
+.card .card-header + .table {
+    border-top: 0;
+}
+@media (max-width: 576px) {
+    .header img {
+        max-height: 2.75rem;
+    }
+    .widget-item {
+        max-width: 50%;
+        flex-basis: 50%;
+    }
+    .widget-icon {
+        font-size: 1.5rem;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+.success a {
+    color: yellow;
+}
+.banner {
+    padding: 0px;
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.success {
+    color: #fff;
+    background-color: #009e22;
+    border: 2px solid #009e25;
+    padding: 12px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.error {
+    color: #fff;
+    background-color: #f55858;
+    border: 2px solid #e82e2e;
+    padding: 12px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
