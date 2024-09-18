@@ -1,4 +1,5 @@
-<?php 
+<?php
+global $config;
 include '../head.php'
 ?>
 <div class="card">
@@ -37,7 +38,8 @@ if ($result) {
 
 <div class="d-flex align-items-center">
    <div class="post-image d-none d-sm-block">
-   <a href="<?php echo $lienket ?>">
+       <a href="<?php /** @var TYPE_NAME $lienket */
+   echo $lienket ?>">
         <img src="/images/avatar.png" style="max-width: 50px; alt="GiftCode Khủng">
     </a>
       <div class="post-author">Admin</div>
@@ -56,7 +58,7 @@ if ($result) {
 </div>
 
 
-<!--<script>
+<script>
 // Khởi tạo biến đếm
 var viewCount = 0;
 
@@ -72,5 +74,5 @@ updateViewCount();
 </script>-->
 
 <?php include '../end.php' ?>
-</body>
+</div>
 </html>

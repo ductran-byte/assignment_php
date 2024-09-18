@@ -11,6 +11,7 @@ $db_pass="";
 
 $db_name="nso_acc";
 
+
 // khuyến mãi nạp tiền 
 $khuyenmai = '1'; // mặc định là 1 nếu không bật khuyến mại x2 khuyến mại thì sửa là số 2 (nghiêm cấm để số 0)
 //api

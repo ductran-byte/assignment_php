@@ -143,7 +143,10 @@ if (isset($_POST['buyWebshop'])) {
 
         }
     </style>
-
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Nhập Tên Item..." onkeyup="searchItems()">
+        <i class="fas fa-search"></i>
+    </div>
     <div class="box" style="background-color: #198754;">
         <div class="box-content">
             <p style="font-size: 1.7rem;text-align: center;">Web shop</p>
@@ -173,12 +176,14 @@ if (isset($_POST['buyWebshop'])) {
     </div>
 
     <div>
+
         <div class="tab-content" id="tabRankingContent">
             <div role="tabpanel" id="fill-tab-example-tabpane-1" aria-labelledby="fill-tab-example-tab-1"
                  class="fade tab-pane">
                 <?php
                 $query = _query("SELECT * FROM shop WHERE loai='1'");
                 while ($row = mysqli_fetch_array($query)) { ?>
+
                     <div class="item" style="background: #FDF8DA;">
                         <div class="item-img"><img src="<?= $row['image']; ?>" alt="" srcset=""></div>
                         <div class="item-title">
@@ -490,6 +495,51 @@ if (isset($_POST['buyWebshop'])) {
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("searchInput");
+            const itemTable = document.getElementById("itemTable");
+
+            searchInput.addEventListener("input", function () {
+                const searchText = searchInput.value.toLowerCase();
+                const rows = itemTable.querySelectorAll("tbody tr");
+
+                rows.forEach(function (row) {
+                    const cells = row.getElementsByTagName("td");
+                    let found = false;
+
+                    Array.from(cells).forEach(function (cell) {
+                        const cellText = cell.textContent.toLowerCase();
+
+                        if (cellText.includes(searchText)) {
+                            found = true;
+                        }
+                    });
+
+                    if (found) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        function searchItems() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.item');
+
+            items.forEach(item => {
+                const title = item.querySelector('.item-title p').textContent.toLowerCase();
+                if (title.includes(input)) {
+                    item.style.display = ''; // Hiện item
+                } else {
+                    item.style.display = 'none'; // Ẩn item
+                }
+            });
+        }
+
+    </script>
 
 
     <!-- Vui lòng để lại dòng này để tôn trọng quyền tác giả -->
