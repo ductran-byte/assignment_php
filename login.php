@@ -1,4 +1,5 @@
 <?php
+global $_login, $config;
 include_once 'set.php';
 
 

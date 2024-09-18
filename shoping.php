@@ -48,7 +48,7 @@ if(isset($_POST['buyWebshop']))
             </script>
             ';
             exit(0);
-        } else {git --version
+        } else {
             $giacoin = $item['gia_coin'];
             if($_coin < $giacoin) {
                 echo '

@@ -1,5 +1,6 @@
 <?php
 
+global $_login;
 include_once 'head.php';
 
 $read_sql = _fetch(_select("*", 'isplayer', "username='$_username'"));

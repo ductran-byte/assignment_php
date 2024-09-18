@@ -1,4 +1,5 @@
 <?php
+global $result, $db_user, $db_pass, $db_host, $db_name, $khuyenmai;
 include 'cauhinh.php';
 $userDB           = $db_user;
 $passDB           = $db_pass;

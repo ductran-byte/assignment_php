@@ -1,5 +1,6 @@
 <?php
 
+global $_login;
 include_once 'head.php';
 if($_login == null) {header("location:/login");}
 
@@ -111,6 +112,6 @@ if($_login == null) {header("location:/login");}
 			</div>*/
             include_once 'end.php';
         ?>
-        </div>
+        </main>
         
 <!--</main>-->

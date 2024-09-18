@@ -1,15 +1,15 @@
 <?php
 include_once 'head.php';
 $_alert = null;
-if($_login == null) {header("location:/");}
-if(isset($_POST['password']))
-{
-	$old_pass = isset_sql($_POST['password']);
-	$new_pass = isset_sql($_POST['new_password']);
-	$re_pass = isset_sql($_POST['new_password_confirmation']);
-	if($old_pass != $_password)
-	{
-		echo '<script>
+if ($_login == null) {
+    header("location:/");
+}
+if (isset($_POST['password'])) {
+    $old_pass = isset_sql($_POST['password']);
+    $new_pass = isset_sql($_POST['new_password']);
+    $re_pass = isset_sql($_POST['new_password_confirmation']);
+    if ($old_pass != $_password) {
+        echo '<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var modal = document.getElementById("doiluongThatBai");
 			var modalContent = document.getElementById("doiluongThatBaiContent");
@@ -17,12 +17,9 @@ if(isset($_POST['password']))
 			modal.style.display = "block";
 		});
 	</script>';
-	}
-	else
-	{
-		if($new_pass != $re_pass)
-		{
-			echo '<script>
+    } else {
+        if ($new_pass != $re_pass) {
+            echo '<script>
 			document.addEventListener("DOMContentLoaded", function() {
 				var modal = document.getElementById("doiluongThatBai");
 				var modalContent = document.getElementById("doiluongThatBaiContent");
@@ -30,13 +27,10 @@ if(isset($_POST['password']))
 				modal.style.display = "block";
 			});
 		</script>';
-		}
-		else
-		{
-			$query = _query(_update('player',"password='$new_pass'","username='$_username'"));
-			if($query)
-			{
-				echo '<script>
+        } else {
+            $query = _query(_update('isplayer', "password='$new_pass'", "username='$_username'"));
+            if ($query) {
+                echo '<script>
 				document.addEventListener("DOMContentLoaded", function() {
 					var modal = document.getElementById("doiluongThanhCong");
 					var modalContent = document.getElementById("doiluongThanhCongContent");
@@ -44,10 +38,8 @@ if(isset($_POST['password']))
 					modal.style.display = "block";
 				});
 			</script>';
-			}
-			else
-			{
-				echo '<script>
+            } else {
+                echo '<script>
 				document.addEventListener("DOMContentLoaded", function() {
 					var modal = document.getElementById("doiluongThatBai");
 					var modalContent = document.getElementById("doiluongThatBaiContent");
@@ -55,13 +47,13 @@ if(isset($_POST['password']))
 					modal.style.display = "block";
 				});
 			</script>';
-			}
-		}
-	}
+            }
+        }
+    }
 }
 ?>
-	<!-- Modal HTML -->
-	<div id="doiluongThanhCong" class="modal">
+<!-- Modal HTML -->
+<div id="doiluongThanhCong" class="modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <span class="close" onclick="closeDoiluongThanhcong()">&times;</span>
@@ -74,8 +66,6 @@ if(isset($_POST['password']))
         </div>
     </div>
 </div>
-
-
 
 
 <!-- Modal HTML -->
@@ -97,58 +87,58 @@ if(isset($_POST['password']))
 <style>
 
 
-/* CSS cho modal */
-.modal {
-    /* ... */
-    transition: opacity 0.3s ease-in-out; /* Thêm transition cho modal */
-}
+    /* CSS cho modal */
+    .modal {
+        /* ... */
+        transition: opacity 0.3s ease-in-out; /* Thêm transition cho modal */
+    }
 
-.modal.show {
-    opacity: 1; /* Hiển thị modal mượt mà */
-}
+    .modal.show {
+        opacity: 1; /* Hiển thị modal mượt mà */
+    }
 
-/* CSS cho nút OK */
-.modal-close-btn {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease-in-out; /* Thêm transition cho nút OK */
-}
+    /* CSS cho nút OK */
+    .modal-close-btn {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        transition: background-color 0.3s ease-in-out; /* Thêm transition cho nút OK */
+    }
 
-/* Khi hover vào nút đóng */
-.modal-close-btn:hover {
-    background-color: #0056b3;
-}
+    /* Khi hover vào nút đóng */
+    .modal-close-btn:hover {
+        background-color: #0056b3;
+    }
 </style>
 
 
 <script>
-    
-function openDoiluongThatBai() {
-    var doiluongThatBai = document.getElementById('doiluongThatBai');
-    doiluongThatBai.style.display = 'block';
-}
 
-function closeDoiluongThatBai() {
-    var doiluongThatBai = document.getElementById('doiluongThatBai');
-    doiluongThatBai.style.display = 'none';
-}
+    function openDoiluongThatBai() {
+        var doiluongThatBai = document.getElementById('doiluongThatBai');
+        doiluongThatBai.style.display = 'block';
+    }
+
+    function closeDoiluongThatBai() {
+        var doiluongThatBai = document.getElementById('doiluongThatBai');
+        doiluongThatBai.style.display = 'none';
+    }
 
 
-function openDoiluongThanhCong() {
-    var doiluongThanhCong = document.getElementById('doiluongThanhCong');
-    doiluongThanhcong.style.display = 'block';
-}
+    function openDoiluongThanhCong() {
+        var doiluongThanhCong = document.getElementById('doiluongThanhCong');
+        doiluongThanhcong.style.display = 'block';
+    }
 
-function closeDoiluongThanhCong() {
-    var doiluongThanhCong = document.getElementById('doiluongThanhCong');
-    doiluongThanhCong.style.display = 'none';
-}
+    function closeDoiluongThanhCong() {
+        var doiluongThanhCong = document.getElementById('doiluongThanhCong');
+        doiluongThanhCong.style.display = 'none';
+    }
 
 </script>
 <!--
@@ -180,48 +170,52 @@ function closeDoiluongThanhCong() {
 -->
 
 
-
-
-		<div class="card" style="">
+<div class="card" style="">
     <div class="card-body">
         <div class="mb-3">
             <div class="row text-center justify-content-center row-cols-3 row-cols-lg-6 g-1 g-lg-1">
                 <div class="col">
-                    <a class="btn btn-sm btn-success w-100 fw-semibold active" href="/user" style="background-color: rgb(101, 173, 109);">Tài khoản</a>
+                    <a class="btn btn-sm btn-success w-100 fw-semibold active" href="/user"
+                       style="background-color: rgb(101, 173, 109);">Tài khoản</a>
                 </div>
                 <div class="col">
-                    <a class="btn btn-sm btn-success w-100 fw-semibold false" href="/lich-su" style="background-color: rgb(101, 173, 109);">Lịch sử GD</a>
+                    <a class="btn btn-sm btn-success w-100 fw-semibold false" href="/lich-su"
+                       style="background-color: rgb(101, 173, 109);">Lịch sử GD</a>
                 </div>
             </div>
         </div>
         <hr>
         <div class="w-100 d-flex justify-content-center">
-        <form method="POST" class="pb-3" style="width: 26rem;">
-    <div class="fs-5 fw-bold text-center mb-3">Đổi mật khẩu</div>
-    <div class="mb-2">
-        <?php echo $_alert; ?>
-        <div class="input-group">
-            <input name="password" type="text" autocomplete="off" placeholder="Nhập mật khẩu hiện tại" class="form-control form-control-solid" value="">
+            <form method="POST" class="pb-3" style="width: 26rem;">
+                <div class="fs-5 fw-bold text-center mb-3">Đổi mật khẩu</div>
+                <div class="mb-2">
+                    <?php echo $_alert; ?>
+                    <div class="input-group">
+                        <input name="password" type="text" autocomplete="off" placeholder="Nhập mật khẩu hiện tại"
+                               class="form-control form-control-solid" value="">
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <div class="input-group">
+                        <input name="new_password" type="password" autocomplete="off" placeholder="Mật khẩu"
+                               class="form-control form-control-solid" value="" oninput="validatePassword(this)">
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <div class="input-group">
+                        <input name="new_password_confirmation" type="password" autocomplete="off"
+                               placeholder="Nhập lại mật khẩu" class="form-control form-control-solid" value=""
+                               oninput="validatePassword(this)">
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="me-3 btn btn-success" id="btn">Đổi mật khẩu</button>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="mb-2">
-        <div class="input-group">
-            <input name="new_password" type="password" autocomplete="off" placeholder="Mật khẩu" class="form-control form-control-solid" value="" oninput="validatePassword(this)">
-        </div>
-    </div>
-    <div class="mb-2">
-        <div class="input-group">
-            <input name="new_password_confirmation" type="password" autocomplete="off" placeholder="Nhập lại mật khẩu" class="form-control form-control-solid" value="" oninput="validatePassword(this)">
-        </div>
-    </div>
-    <div class="text-center mt-3">
-        <button type="submit" class="me-3 btn btn-success" id="btn">Đổi mật khẩu</button>
-    </div>
-</form>
-    </div>
-    </div>
-    </div>
-    <script>
+</div>
+<script>
     function validatePassword(input) {
         // Sử dụng biểu thức chính quy để kiểm tra mật khẩu
         var pattern = /^[a-z0-9]{4,}$/;
@@ -236,16 +230,9 @@ function closeDoiluongThanhCong() {
 </script>
 
 
-
-
-
-
-
-
-
 <?php
 include_once 'end.php';
 ?>
-	</div>
+</div>
 
 </main>
