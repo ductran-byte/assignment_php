@@ -6,7 +6,7 @@ include 'head.php';
 <?php
 require_once("cauhinh.php");
 /** @var TYPE_NAME $itemid */
-$sql = "SELECT * FROM `item` WHERE id = '$itemid'";
+$sql = "SELECT * FROM `item` WHERE id = 'id'";
 $query = mysqli_query($conn, $sql);
 ?>
 <style type="text/css">
@@ -27,8 +27,8 @@ $query = mysqli_query($conn, $sql);
       table tr:nth-child(even){
           background-color:white;
       }*/
-    table tr:nth-child(1){
-        background-color:#FFB475;/*màu thanh trên bảng nạp*/
+    table tr:nth-child(1) {
+        background-color: #FFB475; /*màu thanh trên bảng nạp*/
     }
 
     div#nz-div {
@@ -105,31 +105,6 @@ $query = mysqli_query($conn, $sql);
         line-height: 20px;
         text-transform: uppercase;
     }
-
-
-
-    /*
-      #nz-div-2 table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
-
-      #nz-div-2 th, #nz-div-2 td {
-        padding: 10px;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      #nz-div-2 th {
-        background-color: #f2f2f2;
-      }
-
-      #nz-div-2 td {
-        border-bottom: 1px solid #ddd;
-      }
-    */
-    /* 3  ========================= */
 
     #nz-div-3 h3.tde span {
         background: #EA3A3C;
@@ -299,6 +274,7 @@ $query = mysqli_query($conn, $sql);
     body {
         margin: 0; /* Loại bỏ margin của body */
     }
+
     /* .hoandzvc {
        border-collapse: collapse;
        width: 100%;
@@ -318,6 +294,7 @@ $query = mysqli_query($conn, $sql);
     .hoandzvc th, .hoandzvc td {
         border: 1px solid #dee2e6;
     }
+
     .hoandzvc tbody tr:nth-child(even) {
         background-color: #fff;
     }
@@ -426,7 +403,6 @@ $query = mysqli_query($conn, $sql);
     }
 
 
-
     .card1 {
         width: 100%;
         overflow: hidden;
@@ -437,12 +413,15 @@ $query = mysqli_query($conn, $sql);
     }
 </style>
 
+<style>
+    /* Add necessary CSS styles here */
+    /* ... */
+</style>
+
 <div class="card">
     <br>
     <center>
-
         <h2 style="color: #ff8400;">🍑️Danh sách Item🍑️</h2>
-
     </center>
     </br>
     <hr>
@@ -471,31 +450,15 @@ $query = mysqli_query($conn, $sql);
                 </thead>
                 <tbody>
                 <?php
-                while ($row = mysqli_fetch_array($query)) {
-                    if ($row['gender'] == 2) {
-                        $gender = "Cả 2";
-                    }
-                    if ($row['gender'] == 1) {
-                        $gender = "Nam";
-                    }
-                    if ($row['gender'] == 0) {
-                        $gender = "Nữ";
-                    }
-                    if ($row['isUpToUp'] == 0) {
-                        $isUpToUp = "✘";
-                    }
-                    if ($row['isUpToUp'] == 1) {
-                        $isUpToUp = "✓";
-                    }
-                    echo "<tr><td>" . $row['id'] . " </td><td> " . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['level'] . "</td><td> " . $gender . "</td><td> " . $isUpToUp . "</td><td>" . $row['type'] . "</td></tr>";
-                    //echo "<tr><td>" . $row['id'] . " </td><td> " . $row['name'] . "</td><td>" . $row['description'] . "</td><td>" . $row['level'] . "</td><td> " . $gender . "</td><td> " . $isUpToUp . "</td></tr>";
-                }
+                // Fetch data from the database and display it in the table
+                // ...
                 ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("searchInput");
